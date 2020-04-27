@@ -1,4 +1,8 @@
-_TODO: Explain the layout of your final project, any notes, etc._ 
+## Layout
+Only a couple new files have been added to this repo from the template
+1. /test_scores/ <= this folder contains .csv, and corresponding .xlsx files for the tests that I ran to determine the best classifier set up
+2. /code/pickle_files <= this folder contains the best scoring model as well as the binarizer and vectorizer used
+
 
 # Presentation
 
@@ -12,7 +16,7 @@ _The expected length of the video is 3-10 minutes._
 
 # Data
 
-_TODO: Provide 1) a description of your data and 2) a link/instructions for access._
+The data used for training can be access [here](https://github.com/ua-ling-439-spring-2020/final-project-dalcantara7/blob/master/code/openclass_prize.train)
 
 # Code
 
@@ -25,12 +29,4 @@ _TODO: Provide the commands for installing all necessary dependencies._
 ``` 
 # executed from within the `code` directory:
 docker build -f Dockerfile -t "ling-539/final-project:latest" .
-```
-
-## Tests
-
-_TODO: You are encouraged (but not required) to write tests to ensure your code can be run.  If you write tests, provide instructions for running them here.  Otherwise, remove this subsection._
-
-```
-docker run -it python tests.py
 ```
