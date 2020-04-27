@@ -16,7 +16,7 @@ _The expected length of the video is 3-10 minutes._
 
 # Data
 
-The data used for training can be access [here](https://github.com/ua-ling-439-spring-2020/final-project-dalcantara7/blob/master/code/openclass_prize.train)
+The data used for training can be accessed [here](https://github.com/ua-ling-439-spring-2020/final-project-dalcantara7/blob/master/code/openclass_prize.train)
 
 # Code
 

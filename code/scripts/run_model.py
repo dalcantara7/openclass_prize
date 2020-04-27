@@ -4,9 +4,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
+import pickle
 import pandas as pd
 import numpy as np
 import sys
+import os
 
 
 def read_parse_input(filepath):
@@ -31,13 +33,7 @@ def read_parse_input(filepath):
                 if n_most_common[i][0] in Y[j]:
                     Y[j].remove(n_most_common[i][0])
 
-    vectorizer = TfidfVectorizer()
-    vectorizer.fit(X)
-
-    mlb = MultiLabelBinarizer()
-    mlb.fit(Y)
-
-    return vectorizer, mlb, X, Y
+    return X, Y
 
 
 def train_one_v_rest_and_pred(X_train, Y_train, X_test, Y_test):
@@ -45,14 +41,13 @@ def train_one_v_rest_and_pred(X_train, Y_train, X_test, Y_test):
     classifiers = []
     for i in range(len(Y_train[0])):
         this_train = [l[i] for l in Y_train]
-        # if 1 not in this_train: # <- only needed if class not represented in training set
-        #     preds.append()
-        #     break
-        # else: 
-        lr = LogisticRegression(class_weight={0:1, 1:150})
-        lr.fit(X_train, this_train)
-        classifiers.append(lr)
-        preds = lr.predict(X_test)
+        if 1 not in this_train: # <- only needed if class not represented in training set
+            break
+        else: 
+            lr = LogisticRegression(class_weight={0:1, 1:150})
+            lr.fit(X_train, this_train)
+            classifiers.append(lr)
+            preds = lr.predict(X_test)
 
         #set predictions in predictions matrix
         for j in range(len(preds)):
@@ -61,14 +56,14 @@ def train_one_v_rest_and_pred(X_train, Y_train, X_test, Y_test):
 
     return predictions
 
-
-vectorizer, mlb, X, Y = read_parse_input(sys.argv[0])
+vectorizer = pickle.load(open("../pickle_files/vectorizer.pickle", "rb"))
+mlb = pickle.load(open("../pickle_files/multi-label_binarizer.pickle", "rb"))
+X, Y = read_parse_input(sys.argv[0])
 X_trans = vectorizer.transform(X)
 Y_trans = mlb.transform(Y)
-_, __, X_test, Y_test = read_parse_input(sys.argv[1])
+X_test, Y_test = read_parse_input(sys.argv[1])
 X_test_trans = vectorizer.transform(X_test)
 Y_test_trans = mlb.transform(Y_test)
 preds = train_one_v_rest_and_pred(X_trans, Y_trans, X_test_trans, Y_test_trans)
-
 f1_score = f1_score(Y_test_trans, preds, average='macro')
-print(f1_score)
+print("F1 score:", f1_score)
