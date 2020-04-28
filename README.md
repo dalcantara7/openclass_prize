@@ -6,7 +6,7 @@ Only a couple new files have been added to this repo from the template
 
 # Presentation
 
-- _TODO: include URL here_
+- [This](https://drive.google.com/file/d/16P1NwQbihpMgJ-XuySzc5nOeo1jSfGjL/view?usp=sharing) is the link to the recorded presentation. You will need a University of Arizona log in to access it.
 
 _NOTE: A PDF of your presentation slides named `presentation-slides.pdf` should be added under the `presentation-slides` directory._
 
