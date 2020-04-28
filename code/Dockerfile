@@ -4,8 +4,8 @@
 # Feel free to change as needed.
 FROM python:3.7
 
-LABEL author="Your team name"
-LABEL description="Description of project here."
+LABEL author="dalcantara7"
+LABEL description="OpenClass Prize Project"
 
 # Create app directory
 WORKDIR /app

@@ -56,8 +56,8 @@ def train_one_v_rest_and_pred(X_train, Y_train, X_test, Y_test):
 
     return predictions
 
-vectorizer = pickle.load(open("../pickle_files/vectorizer.pickle", "rb"))
-mlb = pickle.load(open("../pickle_files/multi-label_binarizer.pickle", "rb"))
+vectorizer = pickle.load(open("pickle_files/vectorizer.pickle", "rb"))
+mlb = pickle.load(open("pickle_files/multi-label_binarizer.pickle", "rb"))
 X, Y = read_parse_input(sys.argv[0])
 X_trans = vectorizer.transform(X)
 Y_trans = mlb.transform(Y)
