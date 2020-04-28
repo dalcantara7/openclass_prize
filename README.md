@@ -16,7 +16,7 @@ The data used for training can be accessed [here](https://github.com/ua-ling-439
 
 # Code
 
-To run the run_model.py script which will train a model, and print out the F1 score run the installation line below (to build the docker file) and then run the following command. 
+To run the run_model.py script which will train a model and print out the F1 score, run the installation line below (to build the docker file) and then run the following command. 
 
 ``` 
 # executed from within the 'code' directory
