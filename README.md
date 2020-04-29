@@ -14,6 +14,10 @@ _NOTE: A PDF of the presentation slides named `presentation-slides.pdf` is in th
 
 The data used for training can be accessed [here](https://github.com/ua-ling-439-spring-2020/final-project-dalcantara7/blob/master/code/openclass_prize.train)
 
+# Leaderboard Identification
+
+On the OpenClass leaderboard the team name I used was __"I guess this'll work"__
+
 # Code
 
 To run the run_model.py script which will train a model and print out the F1 score, run the installation line below (to build the docker file) and then run the following command. 
